@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 22:29:05 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/09 22:49:48 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/09 22:40:13 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/09 22:49:19 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_isdigit(int c)
 {
-	int	result;
-	int	sign;
-
-	result = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-			|| *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		sign = -1;
-	// sign = (*str == '-') ? -1 : 1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
-	{
-		result = value * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	return (c >= '0' && c <= '9');
 }
