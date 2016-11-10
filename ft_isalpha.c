@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 16:44:15 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 17:02:27 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/10 13:41:33 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/10 13:51:24 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		*ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_isalpha(int c)
 {
-
-	while (n-- && *(unsigned char *)s1 == *(unsigned char *)s2)
-	{
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (ft_islower(c) || ft_isupper(c));
 }
