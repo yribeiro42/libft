@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 22:29:05 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 20:15:18 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/10 17:55:32 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/10 18:00:45 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strnew(size_t size)
 {
-	int	result;
-	int	negative;
+	char *str;
 
-	result = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-			|| *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		negative = 1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str && ft_isdigit(*str))
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	if (negative == 1)
-		return (-result);
-	else
-		return (result);
+	str = malloc(sizeof(char) * (size + 1));
+	if (!str)
+		return (NULL);
+	ft_bzero(str, size);
+	str[size] = '\0';
+	return (str);
 }

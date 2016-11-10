@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 22:29:05 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 20:15:18 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/10 19:00:49 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/10 19:08:01 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int	result;
-	int	negative;
-
-	result = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-			|| *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		negative = 1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str && ft_isdigit(*str))
+	if (!s1 || !s2)
+		return (0);
+	while (*s1 && *s2)
 	{
-		result = result * 10 + (*str - '0');
-		str++;
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++:
 	}
-	if (negative == 1)
-		return (-result);
-	else
-		return (result);
+	return (1);
 }
