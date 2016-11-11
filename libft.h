@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 14:17:44 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 17:47:08 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 18:04:50 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+
+typedef struct		s_list
+{
+	void *content;
+	size_t content_size;
+	struct s_list *next;
+}			 		t_list;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
