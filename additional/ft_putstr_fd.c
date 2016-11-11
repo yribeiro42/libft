@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 20:18:34 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 15:42:58 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/11 17:30:39 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/11 17:32:48 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lift.h"
+#include "libft.h"
 
-int		ft_iswhitespace(int c)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
-}
+	int i;
 
-char	*ft_strtrim(char const *s)
-{
-	int		start;
-	int		end;
-
-	end = ft_strlen(s) - 1;
-	while (s[start] && ft_iswhitespace(s[start]))
-		start++;
-	while (s[end] && end > start && ft_iswhitespace(s[end]))
-		end--;
-	return (ft_strsub(s, start, end - start + 1));
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }
