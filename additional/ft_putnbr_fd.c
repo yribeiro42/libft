@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 17:35:02 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 17:42:09 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 22:17:35 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void		ft_putnbr_fd(int nb, int fd)
 	}
 	if (nb >= 10)
 	{
-		ft_putnbr_fd(nb / 10);
-		ft_putnbr_fd(nb % 10);
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
 	else
 		ft_putchar_fd((nb + '0'), fd);

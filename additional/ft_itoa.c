@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 16:38:23 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 17:25:30 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 22:17:01 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,4 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		*(str + 0) = '-';
 	return (str);
-}
-
-int	main()
-{
-	printf("%s\n", ft_itoa(-1234));
-	return (0);
 }

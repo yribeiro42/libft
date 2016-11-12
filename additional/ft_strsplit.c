@@ -6,13 +6,71 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 15:43:38 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 16:38:18 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/12 14:17:11 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int		count_words(char const *str, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		while (str[i] == c)
+			i++;
+		if (str[i] != c && str[i])
+			count++;
+		while (str[i] != c && str[i])
+			i++;
+	}
+	return (count);
+}
+
+int		len_words(char const *str, char c)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (str[i] == c)
+		i++;
+	while (str[i] != c && str[i])
+	{
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+
 char	**ft_strsplit(char const *s, char c)
 {
-	
+	int		i;
+	int		j;
+	int		k;
+	char	**str;
+
+	if (!s || !(str = malloc(sizeof(char *) * count_words(s, c))))
+		return (NULL);
+	i = -1;
+	j = 0;
+	while (++i < count_words(s, c))
+	{
+		k = 0;
+		if (!(str[i] = ft_strnew(len_words(&s[j], c) + 1)))
+			str[i] = NULL;
+		while (s[j] == c)
+			j++;
+		while (s[j] != c && s[j])
+			str[i][k++] = s[j++];
+		str[i][k] = '\0';
+	}
+	str[i] = 0;
+	return (str);
 }

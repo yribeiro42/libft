@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:42:12 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 17:45:35 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 19:57:02 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putstr(s, fd);
-	ft_putchar('\n', fd);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

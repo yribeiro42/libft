@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 20:18:34 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 15:42:58 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/12 14:21:20 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lift.h"
+#include "libft.h"
 
 int		ft_iswhitespace(int c)
 {

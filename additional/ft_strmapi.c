@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 18:30:44 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 19:00:06 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 22:15:23 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	while (s[i] != '\0')
 	{			
 		ret[i] = (*f)(i, s[i]);
-		i++:
+		i++;
 	}
 	ret[i] = '\0';
 	return (ret);

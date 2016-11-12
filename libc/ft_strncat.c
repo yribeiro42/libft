@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 17:13:44 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/09 18:50:59 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/11 21:54:34 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 	while (src[i] != '\0' && i < n)
 	{
 		dest[len + i] = src[i];
-		i++:
+		i++;
 	}
 	dest[len + i] = '\0';
 	return (dest);
