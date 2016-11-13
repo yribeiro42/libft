@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 22:29:05 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/12 17:01:00 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/13 15:22:32 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/13 15:37:57 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int	result;
-	int	negative;
-
-	result = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-			|| *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		negative = 1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str && *str <= '9' && *str >= '0')
+	if (*alst)
 	{
-		result = result * 10 + (*str - '0');
-		str++;
+		while (*alst->next)
+		{
+			del((*alst)->content, (*alst)->content_size);
+			free(*alst);
+			(*alst) = (*alst)->next;
+		}
+	*alst = NULL:
 	}
-	if (negative == 1)
-		return (-result);
-	else
-		return (result);
 }
