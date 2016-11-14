@@ -1,0 +1,421 @@
+ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_bzero:      [OK] [OK] [OK] [OK] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [FAILED] 
+[fail]: your memmove use malloc ? why ?
+Test code:
+	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff[0xF0];
+
+	char *ret = ft_memmove(buff, src, 100);
+	if (ret == ((void *)0))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+     memmove: |the cake is a lie !|
+  ft_memmove: |(null)|
+
+ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncpy:    [CRASH] [CRASH] [CRASH] [OK] [FAILED] [FAILED] [FAILED] [CRASH] [OK] [OK] [OK] 
+[crash]: your strncpy does not work with basic input
+Test code:
+	char *src = "--> nyancat <--\n\r";
+	char dst1[30];
+	char dst2[30];
+	size_t max = 12;
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	__builtin___memset_chk (dst2, 'B', sizeof(dst2), __builtin_object_size (dst2, 0));
+	__builtin___strncpy_chk (dst1, src, max, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, max);
+	if (memcmp(dst1, dst2, 29))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+
+[crash]: your strncpy return value is false / your strncpy does not works
+Test code:
+	char *src = "--> nyancat <--\n\r";
+	char dst1[30];
+	size_t max = 12;
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	char *r1 = __builtin___strncpy_chk (dst1, src, max, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	char *r2 = ft_strncpy(dst1, src, max);
+	if (r1 != r2)
+		exit(TEST_FAILED);
+	exit(TEST_SUCCESS);
+
+
+[crash]: your strncpy does not support unicode ?
+Test code:
+	char *src = "œð˛ʼˇ,´˛ˀ-ºª•¶ªˆ§´";
+	char dst1[80];
+	char dst2[80];
+	size_t max = 16;
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	__builtin___memset_chk (dst2, 'B', sizeof(dst2), __builtin_object_size (dst2, 0));
+	__builtin___strncpy_chk (dst1, src, max, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, max);
+	if (memcmp(dst1, dst2, sizeof(dst1) - 1))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+
+[fail]: your strncpy does not work with an 0 as lenght
+Test code:
+	char *src = "this is a string with a \0 inside";
+	char dst1[50];
+	char dst2[50];
+	size_t max = 31;
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	__builtin___memset_chk (dst2, 'B', sizeof(dst2), __builtin_object_size (dst2, 0));
+	__builtin___strncpy_chk (dst1, src, max, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, max);
+	if (strcmp(dst1, dst2))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+     strncpy: |this is a string with a |
+  ft_strncpy: |this is a string with a BBBBBBBBBBBBBBBBBBBBBBBBBB|
+
+[fail]: your strncpy does not fill with \0 the rest of the dest buffer
+Test code:
+	char *src = "stars";
+	char dst1[50];
+	char dst2[50];
+	size_t max = 50;
+
+	__builtin___memset_chk (dst1, 'B', sizeof(dst1), __builtin_object_size (dst1, 0));
+	__builtin___memset_chk (dst2, 'B', sizeof(dst2), __builtin_object_size (dst2, 0));
+	__builtin___strncpy_chk (dst1, src, max, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, max);
+	if (memcmp(dst1, dst2, max))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+     strncpy: |stars|
+  ft_strncpy: |stars|
+
+[fail]: your strncpy put the bad number of \0 at the end of the string
+Test code:
+	char *src = "len\0AAAAAAAAAAAA";
+	char dst1[] = "BBBBBBBBBBBBBBBBBBBB";
+	char dst2[] = "BBBBBBBBBBBBBBBBBBBB";
+	size_t len = strlen(dst1);
+
+	__builtin___strncpy_chk (dst1, src, 7, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, 7);
+	for (size_t i = 0; i < len; i++)
+		if (dst1[i] != dst2[i])
+		{
+			for (size_t it = 0; it < len; it++)
+			for (size_t it = 0; it < len; it++)
+			exit(TEST_FAILED);
+		}
+		exit(TEST_SUCCESS);
+
+Diffs:
+     strncpy: |\x6c\x65\x6e\x00\x00\x00\x00\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42|
+  ft_strncpy: |\x6c\x65\x6e\x00\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42\x42|x41 \x41 \x41 \x41 |
+
+[crash]: your strncpy set a \0 at the end of the string if strlen(src) > n
+Test code:
+	char *src = "AAAAAAAAAAAA";
+	char dst1[] = "BBBBBBBBBBBBBBBBBBBB";
+	char dst2[] = "BBBBBBBBBBBBBBBBBBBB";
+	size_t len = strlen(dst1);
+
+	__builtin___strncpy_chk (dst1, src, 2, __builtin_object_size (dst1, 2 > 1 ? 1 : 0));
+	ft_strncpy(dst2, src, 2);
+	for (size_t i = 0; i < len; i++)
+		if (dst1[i] != dst2[i])
+		{
+			for (size_t it = 0; it < len; it++)
+			for (size_t it = 0; it < len; it++)
+			exit(TEST_FAILED);
+		}
+		exit(TEST_SUCCESS);
+
+
+ft_strcat:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strstr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strnstr:    [OK] [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] 
+[fail]: your strnstr does not work with basic input
+Test code:
+	char *s1 = "MZIRIBMZIRIBMZE123";
+	char *s2 = "MZIRIBMZE";
+	size_t max = strlen(s2);
+	char *i1 = strnstr(s1, s2, max);
+	char *i2 = ft_strnstr(s1, s2, max);
+
+	if (i1 == i2)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strnstr: |(null)|
+  ft_strnstr: |MZIRIBMZE123|
+
+[no crash]: your strnstr does not segfault when null parameter is sent
+Test code:
+	ft_strnstr(((void *)0), "fake", 3);
+
+
+ft_strcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_isalpha:    [OK] 
+ft_isdigit:    [OK] 
+ft_isalnum:    [OK] 
+ft_isascii:    [OK] 
+ft_isprint:    [OK] 
+ft_toupper:    [OK] 
+ft_tolower:    [OK] 
+ft_memalloc:   [OK] [OK] [OK] [OK] [OK] 
+ft_memdel:     [OK] [OK] {not protected}
+ft_strnew:     [OK] [OK] [OK] [OK] 
+ft_strdel:     [OK] [OK] {protected}
+ft_strclr:     [OK] {protected}
+ft_striter:    [OK] [OK] {protected}
+ft_striteri:   [OK] [OK] {protected}
+ft_strmap:     [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strequ:     [OK] [OK] [OK] [OK] {protected}
+ft_strnequ:    [OK] [OK] [OK] [OK] {protected}
+ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strsplit:   [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+ft_itoa:       [OK] [OK] [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] 
+[fail]: your itoa does not work with min int
+Test code:
+	char *i1 = ft_itoa((-2147483647 -1));
+
+	if (atoi(i1) != (-2147483647 -1))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+        itoa: |-./,),(-*,(|
+     ft_itoa: |0|
+
+ft_putchar:    [OK] [OK] [KO] 
+[KO]: your putchar does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(1);
+	ft_putchar(c);
+	write(1, "", 1);
+	get_fd_buffer(1, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+     putchar: |�|
+  ft_putchar: |ø|
+
+ft_putstr:     [OK] [OK] {not protected}
+ft_putendl:    [OK] [OK] {not protected}
+ft_putnbr:     [OK] [OK] [FAILED] [OK] [FAILED] 
+[fail]: your putnbr does not work with int min
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(1);
+	ft_putnbr(i);
+	write(1, "", 1);
+	get_fd_buffer(1, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+      putnbr: |-2147483648|
+   ft_putnbr: |0|
+
+[fail]: your putnbr allocate memory, wtf ???
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(1);
+	ft_putnbr(i);
+	write(1, "", 1);
+	get_fd_buffer(1, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+      putnbr: |-2147483648|
+   ft_putnbr: |0|
+
+ft_putchar_fd: [OK] [OK] [KO] 
+[KO]: your putchar_fd does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(2);
+	ft_putchar_fd(c, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+  putchar_fd: |�|
+ft_putchar_fd: |ø|
+
+ft_putstr_fd:  [OK] [OK] {not protected}
+ft_putendl_fd: [OK] [OK] {not protected}
+ft_putnbr_fd:  [OK] [FAILED] [FAILED] [FAILED] [FAILED] 
+[fail]: your putnbr_fd does not work with int max
+Test code:
+	int i = 2147483647;
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |2147483647|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd does not work with int min
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |-2147483648|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd does not work with random numbers
+Test code:
+	int nbr;
+	char buff[0xF0];
+
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	int nb = atoi(buff);
+	if (nbr != nb)
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	exit(TEST_SUCCESS);
+
+Diffs:
+   putnbr_fd: |3243751|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd allocate memory, wtf ???
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |-2147483648|
+ft_putnbr_fd: |0|
+
+ft_islower:    [OK] 
+ft_isupper:    [OK] 
