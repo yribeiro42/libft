@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
+#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:07:13 by anonymous         #+#    #+#              #
-#    Updated: 2016/11/12 14:27:42 by anonymous        ###   ########.fr        #
+#    Updated: 2016/11/14 14:14:46 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,15 +65,14 @@ FILES		= 	ft_memset.c \
 				ft_putnbr.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
-				ft_putendl_fd.c
-	#			ft_lstnew.c \
+				ft_putendl_fd.c \
+				ft_lstnew.c \
 				ft_lstdelone.c \
 				ft_lstdel.c \
 				ft_lstadd.c \
-				ft_lstiter.c \
-				ft_lstmap.c \
-				ft_strndup.c \
-				ft_capitalize.c
+				ft_lstiter.c
+				#ft_lstmap.c 
+				
 
 OBJ			= $(FILES:%.c=%.o)
 
@@ -82,8 +81,8 @@ all: $(NAME)
 copy:
 	cp -f libc/*.c .
 	cp -f additional/*.c .
-	#cp -f bonus-funcs/*.c .
-	#cp -f personal-funcs/*.c .
+	#cp -f bonus/*.c .
+	#cp -f personal/*.c .
 
 
 $(NAME):
