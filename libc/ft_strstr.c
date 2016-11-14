@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:13:32 by yribeiro         ###   ########.fr       */
+/*   Created: 2016/11/09 18:59:07 by anonymous         #+#    #+#             */
+/*   Updated: 2016/11/14 20:33:40 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,3 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (NULL);
 }
-
-/* int	main()
-{
-	char *str = "Hello world";
-
-	printf("%s\n", ft_strstr(str, "zer"));
-	printf("%s\n", strstr(str, "zer"));
-	return (0);
-} */
