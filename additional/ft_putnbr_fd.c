@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 17:35:02 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 22:17:35 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/14 21:46:41 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void		ft_putnbr_fd(int nb, int fd)
 	{
 		ft_putchar_fd('-', fd);
 		nb = -nb;
+	}
+	if (nb == -2147483648)
+	{
+		ft_putstr("-2147483648");
+		return (0);
 	}
 	if (nb >= 10)
 	{

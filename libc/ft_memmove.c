@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 15:56:11 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 16:32:39 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/14 20:11:18 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	void	*temp;
-	temp = malloc(sizeof(void *) * n);
+	unsigned char	*temp;
+
+	if (!s1 || !s2)
+		return (NULL);
+	temp = malloc(sizeof(*temp) * n);
 	if (!temp)
 		return (NULL);
 	ft_memcpy(temp, src, n);

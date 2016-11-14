@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 17:52:36 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/10 17:54:48 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/14 21:27:38 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (*ap)
+	if (*ap || !ap)
 	{
 		free(*ap);
 		*ap = NULL;

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 16:08:10 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/09 18:51:03 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/14 20:19:24 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 		i++;
 	}
 	while (i < n)
+	{
 		dest[i] = '\0';
+		i++;
+	}
 	return(dest);	
 }

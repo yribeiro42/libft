@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 16:38:23 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/11 22:17:01 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/14 21:40:21 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static size_t	nb_len(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n) // ajouter return intmin
 {
-	char	*str;
-	size_t	str_len;
-	int		nb;
+	char			*str;
+	size_t			str_len;
+	unsigned int	nb;
 	
 	str_len = nb_len(n);
 	nb = n; 
