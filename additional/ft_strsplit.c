@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:10:39 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:34:46 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		len_words(char const *str, char c)
 	}
 	return (len);
 }
-
 
 char	**ft_strsplit(char const *s, char c)
 {

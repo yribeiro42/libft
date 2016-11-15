@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:10:33 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:34:27 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *ret;
-	unsigned int i;
+	char			*ret;
+	unsigned int	i;
 
 	if (!s)
 		return (NULL);
@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!ret)
 		return (NULL);
 	while (s[i] != '\0')
-	{			
+	{
 		ret[i] = (*f)(i, s[i]);
 		i++;
 	}

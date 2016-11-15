@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:12:21 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:32:35 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	}
 	return (NULL);
 }
-

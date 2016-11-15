@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 15:56:11 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/14 20:11:18 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/15 11:25:37 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*temp;
 
-	if (!s1 || !s2)
+	if (!dest || !src)
 		return (NULL);
 	temp = malloc(sizeof(*temp) * n);
 	if (!temp)

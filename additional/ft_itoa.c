@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 16:38:23 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/14 21:40:21 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/15 09:50:21 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/15 11:35:31 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static size_t	nb_len(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n) // ajouter return intmin
+char	*ft_itoa(int n) /* ajouter return intmin */
 {
 	char			*str;
 	size_t			str_len;
 	unsigned int	nb;
-	
+
 	str_len = nb_len(n);
-	nb = n; 
+	nb = n;
 	if (n < 0)
 	{
 		nb = -n;

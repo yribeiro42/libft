@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:10:31 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:35:02 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char *ret;
-	int i;
+	char	*ret;
+	int		i;
 
 	if (!s)
 		return (NULL);
@@ -24,7 +24,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	if (!ret)
 		return (NULL);
 	while (s[i] != '\0')
-	{			
+	{
 		ret[i] = (*f)(s[i]);
 		i++;
 	}

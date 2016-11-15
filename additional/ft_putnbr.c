@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 17:46:13 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/14 21:45:56 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/15 11:33:26 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		ft_putnbr(int nb)
 	if (nb == -2147483648)
 	{
 		ft_putstr("-2147483648");
-		return (0);
+		return ;
 	}
 	if (nb >= 10)
 	{

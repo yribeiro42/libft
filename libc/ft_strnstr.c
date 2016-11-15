@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 21:12:25 by anonymous         #+#    #+#             */
-/*   Updated: 2016/11/14 21:19:38 by anonymous        ###   ########.fr       */
+/*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/15 11:32:25 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
@@ -40,14 +38,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	}
 	return (0);
 }
-
-int main()
-{
-	char *s1 = "MZIRIBMZIRIBMZE123";
-	char *s2 = "MZIRIBMZE";
-	size_t max = strlen(s2);
-	printf("%s\n", strnstr(s1, s2, max)); 
-	printf("%s\n", ft_strnstr(s1, s2, max)); 
-	return (0);
-}
-	

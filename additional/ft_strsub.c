@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:10:42 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:19:38 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		i++;
 		start++;
 	}
+	copy[i] = '\0';
 	return (copy);
 }
