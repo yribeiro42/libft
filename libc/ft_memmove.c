@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 13:37:29 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 16:09:44 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*desttmp;
-	char	*srctmp;
-	size_t			i;
+	unsigned char		*tmpdest;
+	unsigned char		*tmpsrc;
+	size_t				i;
 
-	if (!dest || !src)
-		return (NULL);
-	desttmp = (char *)dest;
-	srctmp = (char *)src;
+	tmpdest = (unsigned char*)dest;
+	tmpsrc = (unsigned char*)src;
 	i = 0;
-	if (srctmp < desttmp)
-		while (--n)
-			desttmp[n] = srctmp[n];
+	if (tmpsrc < tmpdest)
+	{
+		while (n--)
+			tmpdest[n] = tmpsrc[n];
+	}
 	else
-		while (i++ < n)
-			*(desttmp + i) = *(srctmp + i);
+	{
+		while (i < n)
+		{
+			tmpdest[i] = tmpsrc[i];
+			i++;
+		}
+	}
 	return (dest);
 }
