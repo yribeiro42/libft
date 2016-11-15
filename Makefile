@@ -6,7 +6,7 @@
 #    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:07:13 by anonymous         #+#    #+#              #
-#    Updated: 2016/11/14 14:14:46 by yribeiro         ###   ########.fr        #
+#    Updated: 2016/11/15 09:54:16 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ all: $(NAME)
 copy:
 	cp -f libc/*.c .
 	cp -f additional/*.c .
-	#cp -f bonus/*.c .
+	cp -f bonus/*.c .
 	#cp -f personal/*.c .
 
 
