@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:54:19 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 13:07:15 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void		ft_putnbr_fd(int nb, int fd)
 	}
 	if (nb == -2147483648)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		ft_putchar_fd('2', fd);
+		nb = nb % 1000000000;
+		nb = nb * -1;
 	}
 	if (nb >= 10)
 	{

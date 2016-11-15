@@ -6,7 +6,7 @@
 #    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:07:13 by anonymous         #+#    #+#              #
-#    Updated: 2016/11/15 09:54:16 by yribeiro         ###   ########.fr        #
+#    Updated: 2016/11/15 13:29:02 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,7 @@ FILES		= 	ft_memset.c \
 				ft_lstdelone.c \
 				ft_lstdel.c \
 				ft_lstadd.c \
-				ft_lstiter.c
-				#ft_lstmap.c 
+				ft_lstiter.c \
 				
 
 OBJ			= $(FILES:%.c=%.o)
@@ -82,8 +81,6 @@ copy:
 	cp -f libc/*.c .
 	cp -f additional/*.c .
 	cp -f bonus/*.c .
-	#cp -f personal/*.c .
-
 
 $(NAME):
 	gcc $(CFLAGS) $(FILES)
@@ -91,7 +88,7 @@ $(NAME):
 
 clean:
 	rm -f $(OBJ)
-	rm -f $(FILES) # comment this line if you don't want it to remove the source files from the root
+	#rm -f $(FILES) # fdp
 
 fclean: clean
 	rm -f $(NAME)
