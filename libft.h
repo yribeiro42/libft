@@ -6,23 +6,23 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:09:29 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/15 11:38:23 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-typedef struct		s_list
+typedef struct	s_list
 {
-	void *content;
-	size_t content_size;
-	struct s_list *next;
-}			 		t_list;
+	void			*content;
+	size_t			content_size;
+	struct	s_list	*next;
+}				t_list;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -52,7 +52,6 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
