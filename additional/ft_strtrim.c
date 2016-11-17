@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:10:44 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:19:50 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/17 19:12:47 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strtrim(char const *s)
 	int		start;
 	int		end;
 
+	if (!s)
+		return (NULL);
 	start = 0;
 	end = ft_strlen(s) - 1;
 	while (s[start] && ft_iswhitespace(s[start]))
