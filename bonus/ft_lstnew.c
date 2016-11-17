@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:22:45 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/17 15:04:52 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 		return (NULL);
 	if (!content)
 	{
-		t_list->content = NULL;
-		t_list->content_size = 0;
+		new_list->content = NULL;
+		new_list->content_size = 0;
 	}
 	else
 	{
