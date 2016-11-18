@@ -2,161 +2,7 @@ ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_bzero:      [OK] [OK] [OK] [OK] 
 ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_memmove:    [FAILED] [CRASH] [FAILED] [FAILED] [FAILED] [FAILED] [OK] [CRASH] [CRASH] [NO CRASH] [NO CRASH] [OK] 
-[fail]: your memmove does not work with basic input
-Test code:
-	char *src = "this is a good nyancat !\r\n";
-	char dst1[0xF0];
-	char dst2[0xF0];
-	int size = strlen(src);
-
-	__builtin___memmove_chk (dst1, src, size, __builtin_object_size (dst1, 0));
-	ft_memmove(dst2, src, size);
-	if (!memcmp(dst1, dst2, size))
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-     memmove: |this is a good nyancat !
-.|
-  ft_memmove: ||
-
-[crash]: your memmove's return is false/does not work with basic input
-Test code:
-	char *src = "thanks to @apellicc for this test !\r\n";
-	char dst1[0xF0];
-	int size = strlen(src);
-	char *r1 = __builtin___memmove_chk (dst1, src, size, __builtin_object_size (dst1, 0));
-	char *r2 = ft_memmove(dst1, src, size);
-
-	if (r1 != r2)
-		exit(TEST_FAILED);
-	r1 = __builtin___memmove_chk ("", "" - 1, 0, __builtin_object_size ("", 0));
-	r2 = ft_memmove("", "" - 1, 0);
-	if (r1 != r2)
-		exit(TEST_FAILED);
-	exit(TEST_SUCCESS);
-
-
-[fail]: your memmove does not work with \0 and others unsigned char codes
-Test code:
-	char *src = "thi\xffs i\xfas \0a g\xde\xadood \0nyan\0cat\0 !\r\n";
-	int size = 33;
-	char dst1[0xF0];
-	char dst2[0xF0];
-
-	__builtin___memmove_chk (dst1, src, size, __builtin_object_size (dst1, 0));
-	ft_memmove(dst2, src, size);
-	if (!memcmp(dst1, dst2, size))
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-     memmove: |thi�s i�s |
-  ft_memmove: | hi�s i�s |
-
-[fail]: your memmove does not work with integers copy
-Test code:
-	unsigned long src = 0xdeadbeef;
-	int size = sizeof(src);
-
-	unsigned long dst1;
-	unsigned long dst2;
-	__builtin___memmove_chk (&dst1, &src, size, __builtin_object_size (&dst1, 0));
-	ft_memmove(&dst2, &src, size);
-	if (!memcmp(&dst1, &dst2, size))
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-
-
-[fail]: your memmove does not support the overlap (test 1)
-Test code:
-	char dst1[0xF0];
-	char dst2[0xF0];
-	char *data = "thiß ß\xde\xad\xbe\xeftriñg will be øvérlapéd !\r\n";
-	int size = 0xF0 - 0xF;
-
-	__builtin___memset_chk (dst1, 'A', sizeof(dst1), __builtin_object_size (dst1, 0));
-	__builtin___memset_chk (dst2, 'A', sizeof(dst2), __builtin_object_size (dst2, 0));
-	__builtin___memcpy_chk (dst1, data, strlen(data), __builtin_object_size (dst1, 0));
-	__builtin___memcpy_chk (dst2, data, strlen(data), __builtin_object_size (dst2, 0));
-	__builtin___memmove_chk (dst1 + 3, dst1, size, __builtin_object_size (dst1 + 3, 0));
-	ft_memmove(dst2 + 3, dst2, size);
-	if (!memcmp(dst1, dst2, size))
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-     memmove: |thithiß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdH� |
-  ft_memmove: |thi�hiß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAthithiß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAA|
-
-[fail]: your memmove does not support the overlap (test 2)
-Test code:
-	char dst1[0xF0];
-	char dst2[0xF0];
-	char *data = "thiß ß\xde\xad\xbe\xeftriñg will be øvérlapéd !\r\n";
-	int size = 0xF0 - 0xF;
-
-	__builtin___memset_chk (dst1, 'A', sizeof(dst1), __builtin_object_size (dst1, 0));
-	__builtin___memset_chk (dst2, 'A', sizeof(dst2), __builtin_object_size (dst2, 0));
-	__builtin___memcpy_chk (dst1, data, strlen(data), __builtin_object_size (dst1, 0));
-	__builtin___memcpy_chk (dst2, data, strlen(data), __builtin_object_size (dst2, 0));
-	__builtin___memmove_chk (dst1, dst1 + 3, size, __builtin_object_size (dst1, 0));
-	ft_memmove(dst2, dst2 + 3, size);
-	if (!memcmp(dst1, dst2, size))
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-     memmove: |ß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdH� |
-  ft_memmove: |t� ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAA|
-
-[crash]: your memmove does not work with a 128Mo data input !
-Test code:
-	int size = 128 * 1024 * 1024;
-	char *dst = (char *)malloc(sizeof(char) * size);
-	char *data = (char *)malloc(sizeof(char) * size);
-
-	__builtin___memset_chk (data, 'A', size, __builtin_object_size (data, 0));
-	if (!dst)
-		exit(TEST_INVISIBLE);
-	ft_memmove(dst, data, size);
-	exit(TEST_SUCCESS);
-
-
-[crash]: your memmove crash cause it read too many bytes or attempt to read on dst !
-Test code:
-	int size = 10;
-	char *dst = electric_alloc(size);
-	char *data = electric_alloc(size);
-
-	__builtin___memset_chk (data, 'A', size, __builtin_object_size (data, 0));
-	ft_memmove(dst, data, size);
-	exit(TEST_SUCCESS);
-
-
-[no crash]: your memmove does not segfault when null params is sent
-Test code:
-	char b[0xF0];
-
-	ft_memmove(((void *)0), b, 5);
-
-
-[no crash]: your memmove does not segfault when null params is sent
-Test code:
-	char b[0xF0];
-
-	ft_memmove(b, ((void *)0), 5);
-
-
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
@@ -169,7 +15,7 @@ ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strstr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_strnstr:    [OK] [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [NO CRASH] 
+ft_strnstr:    [OK] [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 [fail]: your strnstr does not work with basic input
 Test code:
 	char *s1 = "MZIRIBMZIRIBMZE123";
@@ -186,11 +32,6 @@ Diffs:
      strnstr: |(null)|
   ft_strnstr: |MZIRIBMZE123|
 
-[no crash]: your strnstr does not segfault when null parameter is sent
-Test code:
-	ft_strnstr(((void *)0), "fake", 3);
-
-
 ft_strcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
@@ -202,7 +43,7 @@ ft_isprint:    [OK]
 ft_toupper:    [OK] 
 ft_tolower:    [OK] 
 ft_memalloc:   [OK] [OK] [OK] [OK] [OK] 
-ft_memdel:     [OK] [OK] {not protected}
+ft_memdel:     [OK] [OK] {protected}
 ft_strnew:     [OK] [OK] [OK] [OK] 
 ft_strdel:     [OK] [OK] {protected}
 ft_strclr:     [OK] {protected}
@@ -214,7 +55,7 @@ ft_strequ:     [OK] [OK] [OK] [OK] {protected}
 ft_strnequ:    [OK] [OK] [OK] [OK] {protected}
 ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strsplit:   [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_putchar:    [OK] [OK] [KO] 
@@ -239,8 +80,8 @@ Diffs:
      putchar: |�|
   ft_putchar: |ø|
 
-ft_putstr:     [OK] [OK] {not protected}
-ft_putendl:    [OK] [OK] {not protected}
+ft_putstr:     [OK] [OK] {protected}
+ft_putendl:    [OK] [OK] {protected}
 ft_putnbr:     [OK] [OK] [OK] [OK] [OK] 
 ft_putchar_fd: [OK] [OK] [KO] 
 [KO]: your putchar_fd does not work with unicode
@@ -264,8 +105,13 @@ Diffs:
   putchar_fd: |�|
 ft_putchar_fd: |ø|
 
-ft_putstr_fd:  [OK] [OK] {not protected}
-ft_putendl_fd: [OK] [OK] {not protected}
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
 ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
+ft_lstnew:     [OK] [OK] [OK] [OK] 
+ft_lstdelone:  [OK] 
+ft_lstdel:     [OK] [OK] [OK] 
+ft_lstadd:     [OK] [OK] [OK] 
+ft_lstiter:    [OK] {protected}
 ft_islower:    [OK] 
 ft_isupper:    [OK] 
