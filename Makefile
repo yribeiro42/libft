@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
+#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:07:13 by anonymous         #+#    #+#              #
-#    Updated: 2016/11/15 13:29:02 by yribeiro         ###   ########.fr        #
+#    Updated: 2016/11/20 20:03:05 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ copy:
 	cp -f libc/*.c .
 	cp -f additional/*.c .
 	cp -f bonus/*.c .
+	cp -f personal/*.c .
 
 $(NAME):
 	gcc $(CFLAGS) $(FILES)
@@ -88,7 +89,7 @@ $(NAME):
 
 clean:
 	rm -f $(OBJ)
-	#rm -f $(FILES) # fdp
+	#rm -f $(FILES)
 
 fclean: clean
 	rm -f $(NAME)
