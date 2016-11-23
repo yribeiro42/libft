@@ -6,13 +6,13 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:34:46 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/23 16:20:48 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_words(char const *str, char c)
+static int		count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int		count_words(char const *str, char c)
 	return (count);
 }
 
-int		len_words(char const *str, char c)
+static int		len_words(char const *str, char c)
 {
 	int	i;
 	int	len;
