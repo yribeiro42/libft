@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
+#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 13:29:02 by yribeiro          #+#    #+#              #
-#    Updated: 2016/11/23 10:55:51 by yribeiro         ###   ########.fr        #
+#    Updated: 2016/11/23 21:03:16 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ FILES		= 	ft_memset.c \
 				ft_lstdel.c \
 				ft_lstadd.c \
 				ft_lstiter.c \
+				ft_lstmap.c \
 				
 
 OBJ			= $(FILES:%.c=%.o)

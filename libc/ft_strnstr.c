@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/23 20:24:48 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/23 21:04:05 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
