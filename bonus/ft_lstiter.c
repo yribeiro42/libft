@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:22:29 by yribeiro         ###   ########.fr       */
+/*   Created: 2016/11/15 11:22:29 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/23 11:27:45 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-		while (lst)
-		{
-			(*f)(lst);
-			lst = lst->next;
-		}
+	while (lst)
+	{
+		(*f)(lst);
+		lst = lst->next;
+	}
 }
