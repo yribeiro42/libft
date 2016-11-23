@@ -1,3 +1,0 @@
->>>> 00_part1_ft_strnstr.spec.c -- [FAIL] ...S [SEGV] unittest4 -> strcmp(ft_strnstr(buf2, "ozaraboze", 15), "ozaraboze123") == 0
-
->>>> 01_part2_ft_strsplit.spec.c - [FAIL] F..... [FAIL] test1 -> strcmp(tt[0], "salut") == 0
