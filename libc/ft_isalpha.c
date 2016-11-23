@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/23 16:20:26 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/23 16:36:19 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_islower(int c)
 	return (0);
 }
 
-int	ft_isalpha(int c)
+int			ft_isalpha(int c)
 {
 	if (ft_islower(c) || ft_isupper(c))
 		return (1);

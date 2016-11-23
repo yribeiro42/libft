@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:10:44 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/23 16:20:54 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/23 16:36:40 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		ft_iswhitespace(int c)
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	int		start;
 	int		end;

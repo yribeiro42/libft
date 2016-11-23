@@ -6,9 +6,13 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/14 14:11:39 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/23 16:41:08 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+t_list	*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
+{
+	return ;
+}
