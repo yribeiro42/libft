@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:18:24 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/24 15:25:26 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	{
 		while (s[i] != '\0')
 		{
-			(*f)(i, &s[i]);
+			f(i, &s[i]);
 			i++;
 		}
 	}

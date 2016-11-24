@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/15 11:17:57 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/24 15:11:14 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int		ft_strequ(char const *s1, char const *s2)
 		s1++;
 		s2++;
 	}
+	if (*s1 != '\0' || *s2 != '\0')
+		return (0);
 	return (1);
 }
