@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/24 19:26:13 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/24 19:30:23 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ char			**ft_strsplit(char const *s, char c)
 	int		i;
 	int		j;
 	int		k;
-	char	**str2;
+	char	**str;
 
-	if (!s || !(str2 = (char **)malloc(sizeof(*str2) *
+	if (!s || !(str = malloc(sizeof(*str) *
 		(count_words(s, c) + 1))))
 		return (NULL);
 	i = -1;
@@ -63,14 +63,14 @@ char			**ft_strsplit(char const *s, char c)
 	while (++i < count_words(s, c))
 	{
 		k = 0;
-		if (!(str2[i] = ft_strnew(len_words(&s[j], c) + 1)))
-			str2[i] = NULL;
+		if (!(str[i] = ft_strnew(len_words(&s[j], c) + 1)))
+			str[i] = NULL;
 		while (s[j] == c)
 			j++;
 		while (s[j] != c && s[j])
-			str2[i][k++] = s[j++];
-		str2[i][k] = '\0';
+			str[i][k++] = s[j++];
+		str[i][k] = '\0';
 	}
-	str2[i] = 0;
-	return (str2);
+	str[i] = 0;
+	return (str);
 }
