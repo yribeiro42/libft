@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/23 16:36:48 by yribeiro         ###   ########.fr       */
+/*   Updated: 2016/11/24 19:08:44 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char			**ft_strsplit(char const *s, char c)
 		return (NULL);
 	i = -1;
 	j = 0;
-	while (++i < count_words(s, c))
+	while (i++ < count_words(s, c))
 	{
 		k = 0;
 		if (!(str[i] = ft_strnew(len_words(&s[j], c) + 1)))
