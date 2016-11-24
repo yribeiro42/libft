@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 09:50:22 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/24 18:58:39 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/24 19:00:51 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int s2_size;
+	size_t s2_size;
 
 	s2_size = ft_strlen(s2);
 	if (!*s2)
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 			if (strncmp(s1, s2, s2_size) == 0)
 				return ((char *)s1);
 		}
-		s1++:
+		s1++;
 		n--;
 	}
 	return (NULL);
