@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/24 19:25:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/24 19:26:13 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char			**ft_strsplit(char const *s, char c)
 	while (++i < count_words(s, c))
 	{
 		k = 0;
-		if (!(str2[i] = ft_strnew(get_word_len(&s[j], c) + 1)))
+		if (!(str2[i] = ft_strnew(len_words(&s[j], c) + 1)))
 			str2[i] = NULL;
 		while (s[j] == c)
 			j++;
