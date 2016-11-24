@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
+#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/24 12:49:01 by yribeiro          #+#    #+#              #
-#    Updated: 2016/11/24 12:49:36 by yribeiro         ###   ########.fr        #
+#    Updated: 2016/11/24 19:46:09 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,6 @@ $(NAME):
 
 clean:
 	rm -f $(OBJ)
-	#rm -f $(FILES) # fdp
 
 fclean: clean
 	rm -f $(NAME)
