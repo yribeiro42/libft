@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:05:31 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/24 19:36:13 by anonymous        ###   ########.fr       */
+/*   Updated: 2016/11/24 19:37:39 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striter(char *s, void (*f)(char *))
 	i = 0;
 	if (s && f)
 	{
-		while (*(s + i)
+		while (*(s + i))
 		{
 			f(s + i);
 			i++;
