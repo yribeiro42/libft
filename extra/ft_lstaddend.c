@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 10:56:04 by yribeiro          #+#    #+#             */
-/*   Updated: 2016/11/28 20:05:32 by yribeiro         ###   ########.fr       */
+/*   Created: 2016/11/28 19:19:35 by yribeiro          #+#    #+#             */
+/*   Updated: 2016/11/28 19:38:01 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstaddend(t_list **alst, t_list *node)
 {
-	if (alst != NULL && new != NULL)
+	t_list	*new_list;
+
+	if (!alst)
+		return ;
+	new_list = *alst;
+	if (!new_list)
 	{
-		new->next = *alst;
-		*alst = new;
+		ft_lstadd(alst, node);
+		return ;
 	}
+	while (new_list->next)
+		new_list = new_list->next;
+	new_list->next = node;
+	node->next = NULL;
 }

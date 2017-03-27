@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
+#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/24 12:49:01 by yribeiro          #+#    #+#              #
-#    Updated: 2016/11/24 19:46:09 by anonymous        ###   ########.fr        #
+#    Updated: 2017/03/27 17:41:44 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ FILES		= 	ft_memset.c \
 				ft_lstadd.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
+				ft_lstaddend.c \
+				ft_strndup.c \
 				
 
 OBJ			= $(FILES:%.c=%.o)
@@ -82,6 +84,7 @@ copy:
 	cp -f libc/*.c .
 	cp -f additional/*.c .
 	cp -f bonus/*.c .
+	cp -f extra/*.c .
 
 $(NAME):
 	gcc $(CFLAGS) $(FILES)
