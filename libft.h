@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 11:30:11 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/03/27 17:42:09 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/31 17:33:02 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "printf.h"
 
 typedef struct		s_list
 {
@@ -85,5 +86,10 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstaddend(t_list **alst, t_list *node);
 char				*ft_strndup(char *s, size_t n);
+char				*ft_itoa_base(unsigned int nbr, int base);
+char				*ft_itoa_base_u(unsigned long long nbr, int base);
+char				*ft_itoa_u(unsigned long long n);
+char				*ft_strjoin_free(char *s1, char *s2);
+void				ft_putnstr(char const *s, int n);
 
 #endif
